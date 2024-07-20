@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e1e1e1;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    margin: 128px auto;
+}
+
+.flex {
+    background-color: #f1f1f1;
+    border: 1px solid grey;
+}
+
+.fbuton {
+    display: flex;
+    gap: 16px;
+}
+
+button {
+    margin: 20px auto;
+    background-color: yellow;
+    padding: 16px;
+}
