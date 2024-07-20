@@ -1,5 +1,9 @@
 const container = document.querySelector('.container');
-const btn = document.querySelector('button');
+const btn = document.querySelector('.pixels');
+const randBtn = document.querySelector('.random');
+const colorBtn = document.querySelector('.color');
+const input = document.querySelector('input');
+const opacBtn = document.querySelector('.opacity');
 const divs = [];
 
 for (let i = 0; i < 256; i++) {
@@ -43,6 +47,48 @@ btn.addEventListener('click', () => {
         });
 
         container.appendChild(div);
+    });
+    input.value = '#000000';
+});
+
+randBtn.addEventListener('click', () => {
+    divs.forEach((div) => {
+        div.addEventListener('mouseenter', () => {
+            const random = Math.floor(Math.random() * 256);
+            const random2 = Math.floor(Math.random() * 256);
+            const random3 = Math.floor(Math.random() * 256);
+            div.style.opacity = "100%";
+            div.style.backgroundColor = `rgb(${random}, ${random2}, ${random3})`;
+                window.onbeforeunload = function(event) {
+                    return event;
+                }
+        });
+    });
+});
+
+input.addEventListener('change', () => {
+    divs.forEach((div) => {
+        div.addEventListener('mouseenter', () => {
+            div.style.opacity="100%";
+            div.style.backgroundColor = input.value;
+                window.onbeforeunload = function(event) {
+                    return event;
+                }
+        });
+    });
+});
+
+opacBtn.addEventListener('click', () => {
+    divs.forEach((div) => {
+        let opacity = 0;
+        div.addEventListener('mouseenter', () => {
+            opacity += 10;
+            div.style.opacity = opacity + "%";
+            div.style.backgroundColor = 'black';
+                window.onbeforeunload = function(event) {
+                    return event;
+                }
+        });
     });
 });
 
