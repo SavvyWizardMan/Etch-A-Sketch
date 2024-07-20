@@ -16,17 +16,42 @@ body {
 }
 
 .flex {
-    background-color: #f1f1f1;
+    background-color: #fff;
     border: 1px solid grey;
 }
 
 .fbuton {
     display: flex;
-    gap: 16px;
+    gap: 8px;
 }
 
 button {
+    display: flex;
     margin: 20px auto;
     background-color: yellow;
-    padding: 16px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 48px;
+    cursor: pointer;
+}
+
+button:focus {
+    background-color: orange;
+}
+
+input {
+    cursor: pointer;
+}
+
+.color {
+    cursor: inherit;
+}
+
+.color:focus {
+    background-color: yellow;
+}
+
+.color:active {
+    border: 2px outset black;
 }
