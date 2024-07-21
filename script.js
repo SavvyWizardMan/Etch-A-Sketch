@@ -22,7 +22,7 @@ divs.forEach((div) => {
 });
 
 btn.addEventListener('click', () => {
-    let value = Number(prompt("How many pixels do you want?", 16));
+    let value = Math.floor(Number(prompt("How many pixels do you want?", 16)));
 
     if (value > 100) {
         alert("Please do not enter a number greater than 100 for computational reasons.");
