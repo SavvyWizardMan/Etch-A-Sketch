@@ -1,9 +1,10 @@
 const container = document.querySelector('.container');
-const btn = document.querySelector('.pixels');
 const randBtn = document.querySelector('.random');
 const colorBtn = document.querySelector('.color');
-const input = document.querySelector('input');
+const input = document.querySelector('input[type="color"]');
+const pixelInput = document.querySelector("input[type='range']");
 const opacBtn = document.querySelector('.opacity');
+const span = document.querySelector('span');
 const divs = [];
 
 for (let i = 0; i < 256; i++) {
@@ -21,25 +22,22 @@ divs.forEach((div) => {
     container.appendChild(div);
 });
 
-btn.addEventListener('click', () => {
-    let value = Math.floor(Number(prompt("How many pixels do you want?", 16)));
+pixelInput.addEventListener('input', () => {
+    span.textContent = pixelInput.value + "x" + pixelInput.value;
+})
 
-    if (value > 100) {
-        alert("Please do not enter a number greater than 100 for computational reasons.");
-        value = 16;
-    }
-
+pixelInput.addEventListener('change', () => {
     container.innerHTML = '';
 
     divs.splice(0, divs.length);
 
-    for (let i = 0; i < value**2; i++) {
+    for (let i = 0; i < pixelInput.value**2; i++) {
         divs[i] = document.createElement('div');
     }
 
     divs.forEach((div) => {
-        div.style.width = 600/value + 'px';
-        div.style.height = 600/value + 'px';
+        div.style.width = 600/pixelInput.value + 'px';
+        div.style.height = 600/pixelInput.value + 'px';
         div.classList.add('flex');
 
         div.addEventListener('mouseenter', () => {
