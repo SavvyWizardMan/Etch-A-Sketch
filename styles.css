@@ -29,10 +29,6 @@ span {
     text-align: center;
 }
 
-span::after {
-    content: "";
-}
-
 .container {
     display: flex;
     flex-wrap: wrap;
